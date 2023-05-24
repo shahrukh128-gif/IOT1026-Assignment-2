@@ -1,43 +1,75 @@
 ﻿namespace Assignment
 {
-    class TreasureChest
+    public class TreasureChest
     {
         private State _state = State.Locked;
         private readonly Material _material;
         private readonly LockType _lockType;
         private readonly LootQuality _lootQuality;
 
+        // Default Constructor
         public TreasureChest()
         {
-            throw new NotImplementedException();
+            _material = Material.Iron;
+            _lockType = LockType.Expert;
+            _lootQuality = LootQuality.Green;
+        }
+
+        // Document these methods with XML documentation
+        public TreasureChest(State state) : this()
+        {
+            _state = state;
         }
 
         public TreasureChest(Material material, LockType lockType, LootQuality lootQuality)
         {
-            throw new NotImplementedException();
+            _material = material;
+            _lockType = lockType;
+            _lootQuality = lootQuality;
         }
 
-        public State? Manipulate(Action action)
+        // This is called a getter
+        public State GetState()
+        {
+            return _state;
+        }
+
+        public State Manipulate(Action action)
+        {
+            if (action == Action.Open) {
+                Open();
+            }
+            return _state;
+        }
+
+        public void Unlock()
         {
             throw new NotImplementedException();
         }
 
-        private void Unlock()
+        public void Lock()
         {
             throw new NotImplementedException();
         }
 
-        private void Lock()
+        public void Open()
         {
-            throw new NotImplementedException();
+            // We should check if the chest is closed
+            if (_state == State.Closed)
+            {
+                _state = State.Open;
+            }
+            else if (_state == State.Open)
+            {
+                Console.WriteLine("The chest is already open!");
+            }
+            else if (_state == State.Locked)
+            {
+                Console.WriteLine("The chest cannot be opened because it is locked.");
+            }
         }
 
-        private void Open()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Close()
+        public void Close()
         {
             throw new NotImplementedException();
         }

@@ -29,8 +29,7 @@ Ensure that your implementation works as expected by testing different actions a
 3. Implement the `Manipulate` method:
    - Implement a switch statement based on the provided `action` parameter.
    - For each action, check the current `_state` of the chest.
-     - If the action is valid for the current state, call the corresponding private method (e.g., `Open`, `Close`, `Lock`, `Unlock`) and update the `_state` accordingly.
-     - If the action is not valid, return null or throw an exception.
+     - If the action is valid for the current state, call the corresponding method (e.g., `Open`, `Close`, `Lock`, `Unlock`) and update the `_state` accordingly.
    - Return the updated state after performing the action.
 
 4. Implement the `Unlock`, `Lock`, `Open`, and `Close` methods:
