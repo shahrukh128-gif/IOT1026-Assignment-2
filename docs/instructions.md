@@ -26,16 +26,17 @@ Ensure that your implementation works as expected by testing different actions a
 2. Implement the parameterized constructor:
    - Assign the values of `material`, `lockType`, and `lootQuality` to their corresponding private fields.
 
-3. Implement the `Manipulate` method:
-   - Implement a switch statement based on the provided `action` parameter.
-   - For each action, check the current `_state` of the chest.
-     - If the action is valid for the current state, call the corresponding method (e.g., `Open`, `Close`, `Lock`, `Unlock`) and update the `_state` accordingly.
-   - Return the updated state after performing the action.
-
-4. Implement the `Unlock`, `Lock`, `Open`, and `Close` methods:
+3. Implement the `Unlock`, `Lock`, `Open`, and `Close` methods:
    - For each method, update the `_state` according to the state diagram.
+     - Make sure to consider that the validity of the action is dependent on the current `_state` of the chest.
+   - You should also consider how you want to inform the user whether the action is valid or not. You can use a Console.Write or maybe change the return type of the method.
 
-5. There's no need to modify the `ToString` and `ConsoleHelper` methods as they are already implemented.
+4. Implement the `Manipulate` method:
+   - Implement a switch statement based on the provided `action` parameter.
+   - Call the corresponding method (e.g., `Open`, `Close`, `Lock`, `Unlock`). These methods should update the `_state` accordingly.
+   - Return the state of the chest after performing the action.
+
+5. There's no need to modify the `ToString` and `ConsoleHelper` methods as they are already implemented. These methods are not required for this assignment but they may help with debugging.
 
 6. Ensure that the implemented methods are working as expected by testing different actions and state transitions on a `TreasureChest` object. You should write unit tests for the other methods as well.
 
@@ -65,36 +66,36 @@ Submit a link to the GitHub repo containing your code.
 
 ## Results (70%)
 
-| Points | Description                                                                                   |
-|:------:|-----------------------------------------------------------------------------------------------|
-|   7    | Excellent: Thorough test coverage including edge cases; all tests pass.                      |
-|   6    | Good: Comprehensive test coverage with some edge cases; majority of tests pass.              |
-|   5    | Satisfactory: Adequate test coverage; more than half of tests pass.                          |
-|   3    | Needs Improvement: Limited test coverage; less than half of tests pass.                      |
-|   1    | Poor: No tests or minimal tests; none of the tests pass.                                     |
-|   0    | Code does not build in the CI workflow.                                                       |
+| Points | Description                                                                     |
+| :----: | ------------------------------------------------------------------------------- |
+|   7    | Excellent: Thorough test coverage including edge cases; all tests pass.         |
+|   6    | Good: Comprehensive test coverage with some edge cases; majority of tests pass. |
+|   5    | Satisfactory: Adequate test coverage; more than half of tests pass.             |
+|   3    | Needs Improvement: Limited test coverage; less than half of tests pass.         |
+|   1    | Poor: No tests or minimal tests; none of the tests pass.                        |
+|   0    | Code does not build in the CI workflow.                                         |
 
 ## Class/Method/Variable Naming (10%)
 
-| Points | Description                                                                                   |
-|:------:|-----------------------------------------------------------------------------------------------|
+| Points | Description                                                                                              |
+| :----: | -------------------------------------------------------------------------------------------------------- |
 |   1    | Excellent: Consistent, meaningful, and clear naming conventions for all classes, methods, and variables. |
-|  0.75  | Good: Mostly consistent and meaningful naming conventions; minor inconsistencies or unclear names. |
-|  0.5   | Needs Improvement: Inconsistent naming conventions; some unclear or confusing names.          |
-|   0    | Poor: No clear naming conventions; many unclear or confusing names.                           |
+|  0.75  | Good: Mostly consistent and meaningful naming conventions; minor inconsistencies or unclear names.       |
+|  0.5   | Needs Improvement: Inconsistent naming conventions; some unclear or confusing names.                     |
+|   0    | Poor: No clear naming conventions; many unclear or confusing names.                                      |
 
 ## Comments/Documentation (10%)
 
-| Points | Description                                                                                   |
-|:------:|-----------------------------------------------------------------------------------------------|
+| Points | Description                                                                                                    |
+| :----: | -------------------------------------------------------------------------------------------------------------- |
 |   1    | Excellent: Comprehensive comments and documentation; easy to understand the purpose and functionality of code. |
-|  0.5   | Needs Improvement: Some comments and documentation, but lacking clarity or detail in certain areas. |
-|   0    | Poor: No comments or documentation; difficult to understand the purpose and functionality of the code. |
+|  0.5   | Needs Improvement: Some comments and documentation, but lacking clarity or detail in certain areas.            |
+|   0    | Poor: No comments or documentation; difficult to understand the purpose and functionality of the code.         |
 
 ## Formatting (10%)
 
-| Points | Description                                                                                   |
-|:------:|-----------------------------------------------------------------------------------------------|
-|   1    | No formatting is required during the formatting workflow.                                     |
-|  0.25  | Minimal formatting is required during the formatting workflow.                                |
-|   0    | Extensive formatting is required during the formatting workflow.                              |
+| Points | Description                                                      |
+| :----: | ---------------------------------------------------------------- |
+|   1    | No formatting is required during the formatting workflow.        |
+|  0.25  | Minimal formatting is required during the formatting workflow.   |
+|   0    | Extensive formatting is required during the formatting workflow. |
