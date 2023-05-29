@@ -36,20 +36,56 @@
 
         public State Manipulate(Action action)
         {
-            if (action == Action.Open) {
-                Open();
+            switch (action)
+            {
+                case Action.Open:
+                    Open();
+                    break;
+                case Action.Close:
+                    Close();
+                    break;
+                case Action.Lock:
+                    Lock();
+                    break;
+                case Action.Unlock:
+                    Unlock();
+                    break;
+                default:
+                    break;
             }
             return _state;
         }
 
         public void Unlock()
         {
-            throw new NotImplementedException();
+            if (_state == State.Locked)
+            {
+                _state = State.Closed;
+            }
+            else if (_state == State.Closed)
+            {
+                Console.WriteLine("The chest is already Unlocked!");
+            }
+            else if (_state == State.Open)
+            {
+                Console.WriteLine("The chest cannot be Unclocked because it is already open.");
+            }
         }
 
         public void Lock()
         {
-            throw new NotImplementedException();
+            if (_state == State.Closed)
+            {
+                _state = State.Lock;
+            }
+            else if (_state == State.Open)
+            {
+                Console.WriteLine("The chest is already open!");
+            }
+            //else if (_state == State.Closed)
+            //{
+            //    Console.WriteLine("The chest cannot be locked because it is locked.");
+            //}
         }
 
         public void Open()
@@ -71,7 +107,18 @@
 
         public void Close()
         {
-            throw new NotImplementedException();
+            if (_state == State.Open)
+            {
+                _state = State.Closed;
+            }
+            else if (_state == State.Closed)
+            {
+                Console.WriteLine("The chest is already closed!");
+            }
+            else if (_state == State.Locked)
+            {
+                Console.WriteLine("The chest cannot be closed because it is locked.");
+            }
         }
 
         public override string ToString()
